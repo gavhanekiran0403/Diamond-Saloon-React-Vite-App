@@ -1,0 +1,117 @@
+
+.admin-navbar {
+  height: 60px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 250px;             
+  width: calc(100% - 250px);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 1500;
+}
+
+/* when sidebar collapsed */
+.admin-navbar.full {
+  left: 0;
+  width: 100%;
+}
+
+
+/* Right Section */
+.admin-navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.admin-navbar.full {
+  left: 0;
+  width: 100%;
+
+
+}
+
+
+/* ================= RIGHT SECTION ================= */
+.admin-navbar-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-left: auto;
+}
+
+
+/* ================= NOTIFICATION ================= */
+.admin-notification {
+  position: relative;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+/* ================= BADGE (FIXED) ================= */
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #ef4444;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px; 
+  padding: 0 5px;
+}
+
+
+/* ================= LOGOUT BUTTON ================= */
+.logout-btn {
+  padding: 8px 16px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  opacity: 0.9;
+}
+
+
+/* ================= TOGGLE BUTTON ================= */
+.toggle-btn {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* hide toggle desktop */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .admin-navbar {
+    left: 0;
+    width: 100%;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}

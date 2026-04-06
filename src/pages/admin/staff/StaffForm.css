@@ -1,0 +1,33 @@
+/* Page */
+.staff-form-page {
+    background-color: #ffffff;
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  color: #111827;
+}
+
+.form-title::after {
+  content: "";
+  display: block;
+  background-color: #2563eb;
+  width: 120px;
+  height: 3px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.staff-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}

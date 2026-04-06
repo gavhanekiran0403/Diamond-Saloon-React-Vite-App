@@ -1,0 +1,169 @@
+/* Page Wrapper */
+.saloon-settings-page {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.08);
+  max-width: 850px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Title */
+.saloon-settings-title {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  color: #111827;
+  margin-bottom: 22px;
+}
+
+.saloon-settings-title::after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 3px;
+  background-color: #2563eb;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+
+/* Form */
+.saloon-settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+/* Grid layout */
+.saloon-settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+
+/* Group */
+.saloon-settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.saloon-settings-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+}
+
+
+/* Inputs */
+.saloon-settings-group input,
+.saloon-settings-group textarea {
+  padding: 10px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+
+.saloon-settings-group input:focus,
+.saloon-settings-group textarea:focus {
+  border-color: #2563eb;
+}
+
+
+/* Full width */
+.saloon-settings-full {
+  grid-column: span 2;
+}
+
+
+/* Logo */
+.saloon-settings-logo-box {
+  text-align: center;
+}
+
+.saloon-settings-logo-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e7eb;
+}
+
+.saloon-settings-logo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Map preview */
+.saloon-settings-map {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+
+/* Buttons */
+.saloon-settings-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.saloon-settings-save-btn {
+  background-color: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.saloon-settings-save-btn:hover {
+  background-color: #15803d;
+}
+
+.saloon-settings-cancel-btn {
+  background-color: #9ca3af;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.saloon-settings-cancel-btn:hover {
+  background-color: #6b7280;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .saloon-settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .saloon-settings-full {
+    grid-column: span 1;
+  }
+
+  .saloon-settings-actions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,155 @@
+/* =========================
+   BOOKINGS PAGE
+========================= */
+
+.booking-page {
+    padding: 30px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.booking-page h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* =========================
+   TABLE STYLE
+========================= */
+
+.booking-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    animation: slideUp 0.5s ease-in-out;
+}
+
+.booking-table thead {
+    background: linear-gradient(135deg, #ff4b7d, #ff758c);
+    color: white;
+}
+
+.booking-table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.booking-table td {
+    padding: 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.booking-table tbody tr:hover {
+    background: #fff4f7;
+    transform: scale(1.01);
+}
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.booking-table button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #ff0844, #ff4b7d);
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+
+.booking-table button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 0, 70, 0.3);
+}
+
+/* =========================
+   EMPTY MESSAGE
+========================= */
+
+.empty-message {
+    text-align: center;
+    padding: 30px;
+    font-size: 16px;
+    color: #777;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .booking-table thead {
+        display: none;
+    }
+
+    .booking-table,
+    .booking-table tbody,
+    .booking-table tr,
+    .booking-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .booking-table tr {
+        margin-bottom: 15px;
+        background: white;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .booking-table td {
+        border: none;
+        padding: 8px 0;
+    }
+
+    .booking-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        display: block;
+        margin-bottom: 4px;
+        color: #ff4b7d;
+    }
+
+    .booking-table button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

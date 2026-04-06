@@ -1,0 +1,113 @@
+/* ================= SIDEBAR CONTAINER ================= */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  background: #2b1b2f;
+  z-index: 2000;
+
+  /* ⭐ IMPORTANT FIX */
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden; /* prevent body overflow */
+
+  transition: transform 0.3s ease;
+}
+
+
+/* ================= HEADER ================= */
+.sidebar-header {
+  height: 60px;
+  flex-shrink: 0;           /* never shrink */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* ================= MENU ================= */
+.sidebar-menu {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+
+  /* ⭐ scroll only menu */
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
+}
+
+/* optional scrollbar style */
+.sidebar-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-menu::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+
+/* ================= MENU ITEMS ================= */
+.sidebar-menu li {
+  margin: 6px 0;
+}
+
+.sidebar-menu a {
+  display: block;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: #e6d8ff;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+  background: rgba(168, 85, 247, 0.35);
+}
+
+
+/* ================= OVERLAY ================= */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1500;
+}
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  /* hide sidebar by default */
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  /* show when open */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* smoother animation */
+  .sidebar {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* slightly narrower on mobile */
+  .sidebar {
+    width: 220px;
+  }
+}

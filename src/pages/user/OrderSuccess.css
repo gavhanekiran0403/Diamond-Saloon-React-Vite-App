@@ -1,0 +1,176 @@
+.success-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #10b981, #34d399);
+    padding: 20px;
+}
+
+
+/* CARD */
+
+.success-card {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease;
+}
+
+.success-card h1 {
+    color: #059669;
+    margin-top: 20px;
+    font-size: 26px;
+}
+
+.success-card p {
+    color: #555;
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* BUTTONS */
+
+.success-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.orders-btn {
+    padding: 12px 20px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.orders-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+}
+
+.home-btn {
+    padding: 12px 20px;
+    background: #0f172a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+}
+
+
+/* CHECKMARK ANIMATION */
+
+.checkmark-circle {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    display: inline-block;
+}
+
+.background {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #10b981;
+    position: absolute;
+}
+
+.checkmark {
+    border-radius: 5px;
+}
+
+.checkmark.draw:after {
+    animation-duration: 0.8s;
+    animation-timing-function: ease;
+    animation-name: checkmark;
+    transform: scaleX(-1) rotate(135deg);
+    animation-fill-mode: forwards;
+}
+
+.checkmark:after {
+    opacity: 0;
+    height: 45px;
+    width: 22px;
+    transform-origin: left top;
+    border-right: 6px solid white;
+    border-top: 6px solid white;
+    border-radius: 3px !important;
+    content: '';
+    left: 28px;
+    top: 46px;
+    position: absolute;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes checkmark {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 1;
+    }
+
+    20% {
+        height: 0;
+        width: 22px;
+        opacity: 1;
+    }
+
+    40% {
+        height: 45px;
+        width: 22px;
+        opacity: 1;
+    }
+
+    100% {
+        height: 45px;
+        width: 22px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* MOBILE */
+
+@media(max-width:480px) {
+    .success-card {
+        padding: 40px 25px;
+    }
+
+    .success-card h1 {
+        font-size: 22px;
+    }
+}

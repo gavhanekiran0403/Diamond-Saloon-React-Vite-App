@@ -1,0 +1,188 @@
+/* Page */
+.service-page {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Top Bar */
+.service-top-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px; 
+}
+
+/* Filter Bar */
+.service-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-filter-bar label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.service-filter-bar select {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.service-filter-bar select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* Add Button */
+.service-add-btn {
+  background-color: #16a34a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.service-add-btn:hover {
+  background-color: #15803d;
+}
+
+/* Title */
+.service-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #111827;
+  text-align: center;
+}
+
+.service-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background-color: #2563eb;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Table */
+.service-table-wrapper {
+  overflow-x: auto;
+}
+
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.service-table th,
+.service-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.service-table th {
+  background-color: #f9fafb;
+  font-weight: 800;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.service-table td {
+  color: #374151;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.service-table tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Status Badge */
+.service-status-badge {
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.service-status-badge.available {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.service-status-badge.unavailable {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Action Buttons */
+.service-action-cell {
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Edit Button */
+.service-edit-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.service-edit-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Delete Button */
+.service-delete-btn {
+  background-color: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.service-delete-btn:hover {
+  background-color: #b91c1c;
+}
+
+.service-action-cell button + button {
+  margin-left: 8px;
+}
+
+/* No Data */
+.service-no-data {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+/* Responsive (Optional but Recommended) */
+@media (max-width: 768px) {
+  .service-top-action {
+    flex-direction: column;
+  }
+}

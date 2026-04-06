@@ -1,0 +1,302 @@
+.women-page {
+    padding: 90px 20px;
+    text-align: center;
+    animation: fadeUp 1s ease forwards;
+
+    background:
+        radial-gradient(circle farthest-side at top center,
+            rgba(244, 195, 236, 0.993),
+            transparent 35%),
+        #ffffff;
+
+}
+
+.women-title {
+    font-size: 2.6rem;
+    color: #00796b;
+    margin-bottom: 10px;
+}
+
+.women-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 60px;
+}
+
+/* Image Cards */
+.women-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 90px;
+}
+
+.women-image-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(121, 0, 107, 0.12);
+    transition: 0.4s ease;
+    animation: zoomIn 0.8s ease forwards;
+}
+
+.women-image-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.women-image-card h3 {
+    color: #00796b;
+    margin: 15px 0 8px;
+}
+
+.women-image-card p {
+    color: #555;
+    padding: 0 15px 20px;
+    font-size: 0.95rem;
+}
+
+.women-image-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(121, 0, 107, 0.25);
+}
+
+/* Service Cards */
+.women-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.women-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 18px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #004d40;
+    box-shadow: 0 10px 25px rgba(0, 121, 107, 0.15);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: zoomIn 0.8s ease forwards;
+}
+
+.women-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(0, 121, 107, 0.15), transparent);
+    transition: 0.6s;
+}
+
+.women-card:hover::before {
+    left: 100%;
+}
+
+.women-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    background: #00796b;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0, 121, 107, 0.35);
+}
+
+/* Price Section */
+.women-price-section {
+    margin-top: 90px;
+}
+
+.women-price-section h2 {
+    font-size: 2.3rem;
+    color: #00796b;
+    margin-bottom: 40px;
+}
+
+.women-price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 900px;
+    margin: auto;
+
+}
+
+.women-price-card {
+    background: #f3e5f5;
+    padding: 30px;
+    border-radius: 18px;
+    color: #4a148c;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    animation: fadeUp 1.2s ease forwards;
+    border-top: 3px solid rgba(244, 195, 236, 0.993);
+    border-left: 3px solid rgba(244, 195, 236, 0.993);
+}
+
+.women-price-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.women-price-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.women-price-card li {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+/* CTA */
+.women-cta {
+    margin-top: 100px;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #d81b60, #8e24aa);
+    color: white;
+    border-radius: 25px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.women-cta h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.women-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.women-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: white;
+    color: #8e24aa;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.women-btn:hover {
+    background: #fce4ec;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .women-title {
+        font-size: 2rem;
+    }
+
+    .women-cta h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Women Packages Section */
+.women-packages-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.women-packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.women-package-card {
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.women-package-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.women-package-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.women-package-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.women-package-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Special Offer Section */
+.women-special-offer {
+    background: #ffe5f0;
+    /* subtle highlight for women */
+    padding: 30px 20px;
+    margin: 50px 0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeScale 0.8s ease forwards;
+    animation-delay: 1s;
+    /* appears after packages */
+}
+
+@keyframes fadeScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

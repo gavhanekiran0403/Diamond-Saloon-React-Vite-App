@@ -1,0 +1,186 @@
+/* Page */
+.payment-page {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Top Action Bar */
+.payment-top-action {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Filter Bar */
+.payment-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+/* Filter Item */
+.payment-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payment-filter-item label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* Inputs */
+.payment-filter-item input,
+.payment-filter-item select {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+
+.payment-filter-item input:focus,
+.payment-filter-item select:focus {
+  border-color: #2563eb;
+}
+
+/* Reset Button */
+.payment-reset-btn {
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #374151;
+}
+
+.payment-reset-btn:hover {
+  background-color: #e5e7eb;
+}
+
+/* Title */
+.payment-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #111827;
+  text-align: center;
+}
+
+.payment-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background-color: #2563eb;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Table */
+.payment-table-wrapper {
+  overflow-x: auto;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.payment-table th {
+  background-color: #f9fafb;
+  font-weight: 800;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.payment-table td {
+  color: #374151;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.payment-table tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Payment ID Highlight */
+.payment-id-cell {
+  font-weight: 800;
+  color: #2563eb;
+}
+
+/* Status Badge */
+.payment-status-badge {
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 800;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Status Colors */
+.payment-status-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.payment-status-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.payment-status-failed {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* No Data */
+.payment-no-data {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b7280;
+  padding: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .payment-top-action {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .payment-filter-bar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .payment-filter-item {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .payment-filter-item input,
+  .payment-filter-item select {
+    width: 60%;
+  }
+}
+

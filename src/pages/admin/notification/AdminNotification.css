@@ -1,0 +1,101 @@
+/* ================= PAGE ================= */
+.notification-page {
+  padding: 25px;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+
+/* ================= HEADER ================= */
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.count-badge {
+  background: #2563eb;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+
+/* ================= LIST ================= */
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+/* ================= CARD ================= */
+.notification-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: white;
+  padding: 14px;
+  border-radius: 8px;
+
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+}
+
+.notification-card.unread {
+  background: #e8f1ff;
+}
+
+
+/* ================= CONTENT ================= */
+.icon {
+  font-size: 20px;
+}
+
+.content {
+  flex: 1;
+}
+
+.time {
+  font-size: 12px;
+  color: gray;
+}
+
+
+/* ================= DELETE ================= */
+.delete {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+/* ================= DETAILS FULL PAGE ================= */
+.notification-details-full {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+
+/* ================= BACK BUTTON ================= */
+.back-btn {
+  margin-bottom: 15px;
+  padding: 6px 12px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}

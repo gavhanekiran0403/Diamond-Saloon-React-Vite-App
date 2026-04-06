@@ -1,0 +1,301 @@
+/* ===== GLOBAL ===== */
+.men-page {
+    padding: 40px 20px;
+    font-family: "Poppins", sans-serif;
+    background: #f9fafc;
+}
+
+.men-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.men-subtitle {
+    text-align: center;
+    color: gray;
+    margin-bottom: 30px;
+}
+
+/* ===== IMAGE GRID ===== */
+.men-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.men-image-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.men-image-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.men-image-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ===== SERVICES ===== */
+.men-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.men-card {
+    background: #fff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.men-card:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* ===== PACKAGES ===== */
+.men-packages-section {
+    margin: 40px 0;
+}
+
+.men-packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.men-package-card {
+    background: linear-gradient(135deg, #6ae9ae, #333);
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.men-package-card:hover {
+    transform: scale(1.05);
+}
+
+/* ===== PRICE SECTION ===== */
+.men-price-section {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.men-price-section h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* GRID */
+.men-price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* CARD */
+.men-price-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* HOVER EFFECT */
+.men-price-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* TITLE */
+.men-price-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #111;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 8px;
+}
+
+/* LIST */
+.men-price-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.men-price-card ul li {
+    padding: 10px 0;
+    font-size: 15px;
+    color: #555;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* REMOVE LAST BORDER */
+.men-price-card ul li:last-child {
+    border-bottom: none;
+}
+
+/* PRICE STYLE */
+.men-price-card ul li::after {
+    content: "✔";
+    color: #2ecc71;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .men-price-section h2 {
+        font-size: 22px;
+    }
+
+    .men-price-card {
+        padding: 20px;
+    }
+
+    .men-price-card ul li {
+        font-size: 14px;
+    }
+}
+
+/* ===== SPECIAL OFFER ===== */
+.women-special-offer {
+    background: linear-gradient(135deg, #ff7b00, #ffb347);
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* ===== EVENTS ===== */
+.events-section {
+    margin-top: 40px;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.event-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+}
+
+/* IMAGE */
+.img-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.content {
+    padding: 15px;
+}
+
+.content h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.discount {
+    color: #e63946;
+    font-weight: bold;
+}
+
+.timer {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* BADGE */
+.offer-badge {
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    background: red;
+    color: #fff;
+    padding: 5px 12px;
+    font-size: 12px;
+    transform: rotate(-20deg);
+}
+
+/* ===== CTA ===== */
+.men-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.men-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #000;
+    color: #c3f0e5;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.men-btn:hover {
+    background: #444;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Mobile */
+@media (max-width: 600px) {
+    .men-title {
+        font-size: 24px;
+    }
+
+    .men-image-card img {
+        height: 140px;
+    }
+
+    .event-card {
+        margin: 0 auto;
+    }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .men-title {
+        font-size: 28px;
+    }
+}

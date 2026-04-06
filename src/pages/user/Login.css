@@ -1,0 +1,180 @@
+/* ================= LOGIN MODAL ================= */
+
+.login-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 15px;
+}
+
+
+/* ================= MODAL CONTAINER ================= */
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    position: relative;
+    animation: slideDown 0.4s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* ================= CLOSE BUTTON ================= */
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: #10b981;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+
+/* ================= HEADING ================= */
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #065f46;
+    font-weight: 700;
+}
+
+
+/* ================= INPUT FIELDS ================= */
+
+.login-container input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+
+/* ================= SUBMIT BUTTON CENTER ================= */
+
+.login-container button[type="submit"] {
+    display: block;
+    margin: 10px auto 0 auto;
+    /* Center button */
+    width: 70%;
+    padding: 12px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.login-container button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+
+/* ================= FOOTER LINKS ================= */
+
+.form-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+/* Space for admin section */
+
+.form-footer p {
+    margin: 8px 0;
+}
+
+
+/* Admin link slightly down */
+
+.form-footer p:last-child {
+    margin-top: 18px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.form-footer span {
+    color: #10b981;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.form-footer span:hover {
+    color: #065f46;
+    text-decoration: underline;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 25px 20px;
+    }
+
+    .login-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .login-container input {
+        padding: 11px;
+        font-size: 0.9rem;
+    }
+
+    .login-container button[type="submit"] {
+        width: 80%;
+        font-size: 0.9rem;
+    }
+}

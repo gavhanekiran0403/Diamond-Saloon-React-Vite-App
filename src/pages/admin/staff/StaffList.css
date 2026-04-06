@@ -1,0 +1,156 @@
+/* Page */
+.staff-page {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Top Bar */
+.staff-top-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px; 
+}
+
+/* Add Button */
+.staff-add-btn {
+  background-color: #16a34a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.staff-add-btn:hover {
+  background-color: #15803d;
+}
+
+.staff-title {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+.staff-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #2563eb;
+    margin: 8px auto 0;
+}
+
+/* Table */
+.staff-table-wrapper {
+    overflow-x: auto;
+}
+
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.staff-table th,
+.staff-table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.staff-table th {
+    background-color: #f9fafb;
+    font-weight: 800;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.staff-table td {
+    color: #374151;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.staff-table tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Status Badge */
+.staff-status-badge {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.staff-status-badge.available {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.staff-status-badge.unavailable {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Action Buttons */
+.staff-action-cell {
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.staff-edit-btn {
+    padding: 6px 12px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.staff-edit-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.staff-delete-btn{
+    padding: 6px 14px;
+    background-color: #dc2626;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.staff-delete-btn:hover {
+  background-color: #b91c1c;
+}
+
+.staff-action-cell button + button {
+  margin-left: 8px;
+}
+
+/* No Data */
+.staff-no-data {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b7280;
+  padding: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .staff-top-action {
+    flex-direction: column;
+    align-items: center;
+  }
+}

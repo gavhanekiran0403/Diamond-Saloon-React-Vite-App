@@ -1,0 +1,178 @@
+/* ===================================== */
+/* PAGE (OLD STYLE – FULL WIDTH) */
+/* ===================================== */
+.reports-page {
+  padding: 20px;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+
+/* ===================================== */
+/* TITLE */
+/* ===================================== */
+.reports-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+
+/* ===================================== */
+/* TABS (OLD LEFT ALIGN STYLE) */
+/* ===================================== */
+.report-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.report-tabs button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background: #e5e5e5;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.report-tabs button.active {
+  background: #111;
+  color: white;
+}
+
+
+/* ===================================== */
+/* FILTER BAR (OLD STYLE LIKE BEFORE) */
+/* ===================================== */
+.report-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.report-actions input,
+.report-actions select {
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+
+/* ===================================== */
+/* RESET BUTTON */
+/* ===================================== */
+.reset-btn {
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #555;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: #222;
+}
+
+
+/* ===================================== */
+/* PAYMENT SUMMARY */
+/* ===================================== */
+.payment-summary {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.summary-card {
+  background: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.summary-card.total {
+  background: black;
+  color: white;
+}
+
+/* TABLE BOX (FULL WIDTH LIKE OLD) */
+.report-table-box {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  overflow-x: auto;   /* mobile scroll */
+}
+
+/* TABLE */
+.report-table {
+  width: 100%;         /* 🔥 full width */
+  border-collapse: collapse;
+  min-width: 700px;    /* prevents squish */
+}
+
+.report-table th,
+.report-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.report-table th {
+  background: #f5f5f5;
+  font-weight: 700;
+}
+
+.report-table tr:hover {
+  background: #fafafa;
+}
+
+
+/* ===================================== */
+/* EMPTY STATE */
+/* ===================================== */
+.no-data-cell {
+  text-align: center;
+  padding: 30px;
+  font-weight: 600;
+  color: #777;
+}
+
+
+
+/* ================================================= */
+/* 🔥 MOBILE RESPONSIVE (TABULAR ONLY) */
+/* ================================================= */
+@media (max-width: 768px) {
+
+  /* filters stacked */
+  .report-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .report-actions input,
+  .report-actions select,
+  .reset-btn {
+    width: 100%;
+  }
+
+  /* summary stacked */
+  .payment-summary {
+    flex-direction: column;
+  }
+
+  /* smaller table */
+  .report-table th,
+  .report-table td {
+    padding: 8px;
+    font-size: 12px;
+  }
+}

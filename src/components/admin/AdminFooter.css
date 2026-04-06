@@ -1,0 +1,31 @@
+.admin-footer {
+  height: 50px;
+  background: white;
+
+  position: fixed;
+  bottom: 0;
+
+  left: 250px;
+  width: calc(100% - 250px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top: 1px solid #e5e7eb;
+
+  z-index: 1500;
+  transition: all 0.3s ease;
+}
+
+.admin-footer.full {
+  left: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .admin-footer {
+    left: 0;
+    width: 100%;
+  }
+}
