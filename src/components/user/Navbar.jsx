@@ -17,12 +17,31 @@ const Navbar = () => {
 
   useEffect(() => {
     try {
+      // 🚫 BLOCK ADMIN FROM USER NAVBAR
+      const admin = localStorage.getItem("adminUser");
+
+      if (admin) {
+        console.log("Admin detected → hiding user navbar");
+        setLoggedUser(null);
+        return;
+      }
+
+      // ✅ LOAD ONLY NORMAL USER
       const stored = localStorage.getItem("loggedUser");
+
       if (stored) {
         const user = JSON.parse(stored);
+
+        // extra safety check
+        if (user.role === "ADMIN") {
+          setLoggedUser(null);
+          return;
+        }
+
         console.log("Loaded user:", user);
         setLoggedUser(user);
       }
+
     } catch (err) {
       console.error("Invalid storage data:", err);
       localStorage.removeItem("loggedUser");
@@ -36,35 +55,32 @@ const Navbar = () => {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+
   }, []);
 
   const handleLogin = (user) => {
-    setLoggedUser(user);
     setShowLogin(false);
 
+    // 🔥 IMPORTANT: DON'T SET ADMIN IN USER NAVBAR
     if (user.role === "ADMIN") {
       navigate("/admin/dashboard");
-    } else {
-      navigate("/home");
+      return;
     }
+
+    setLoggedUser(user);
+    navigate("/home");
   };
 
   const handleLogout = async () => {
     try {
       const stored = localStorage.getItem("loggedUser");
 
-      if (!stored) {
-        console.error("No user found");
-        return;
-      }
+      if (!stored) return;
 
       const user = JSON.parse(stored);
-      console.log("Logout user:", user);
 
       if (user.id) {
         await logoutUser(user.id);
-      } else {
-        console.error("User ID missing:", user);
       }
 
       localStorage.removeItem("loggedUser");

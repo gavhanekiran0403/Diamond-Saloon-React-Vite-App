@@ -5,7 +5,6 @@ import { logoutUser } from "../../services/AuthService";
 
 function AdminNavbar({ toggleSidebar, sidebarOpen }) {
   const navigate = useNavigate();
-
   const [unreadCount, setUnreadCount] = useState(0);
 
   /* ================= GET COUNT FROM STORAGE ================= */
@@ -17,22 +16,33 @@ function AdminNavbar({ toggleSidebar, sidebarOpen }) {
   /* ================= LOGOUT ================= */
   const handleLogout = async () => {
     try {
-      const adminId = localStorage.getItem("adminId");
+      // ✅ FIX: use adminUser
+      const stored = localStorage.getItem("adminUser");
 
-      if (!adminId) {
-        navigate("/admin/login");
+      if (!stored) {
+        navigate("/home");
         return;
       }
 
-      await logoutUser(adminId);
-      localStorage.removeItem("adminId");
+      const admin = JSON.parse(stored);
 
-      navigate("/admin/login");
-    } catch {
+      console.log("Admin logout:", admin);
+
+      if (admin.id) {
+        await logoutUser(admin.id);
+      }
+
+      // ✅ REMOVE ONLY ADMIN
+      localStorage.removeItem("adminUser");
+
+      // ✅ REDIRECT TO ADMIN LOGIN
+      navigate("/home");
+
+    } catch (error) {
+      console.error("Logout failed:", error);
       alert("Logout failed");
     }
   };
-
 
   return (
     <div className={`admin-navbar ${!sidebarOpen ? "full" : ""}`}>

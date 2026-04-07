@@ -2,104 +2,92 @@ import React, { useState } from "react";
 import "./Login.css";
 import { adminLogin, registerUser, userLogin } from "../../services/AuthService";
 
-const Login = ({ onLogin, onClose }) => {
-    const [formType, setFormType] = useState("userLogin");
-    const [formData, setFormData] = useState({
-        fullName: "",
-        phone: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-    });
+const Login = ({ onLogin, onClose, type }) => {
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+  const [formType, setFormType] = useState(
+    type === "admin" ? "adminLogin" : "userLogin"
+  );
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // ✅ UNIVERSAL USER MAPPING
+  const mapUser = (raw) => {
+    const userData = raw?.user || raw?.data || raw;
+
+    return {
+      id: userData?.id || userData?.userId || userData?.uid,
+      fullName: userData?.fullName || userData?.name || "User",
+      email: userData?.email || "",
+      phone: userData?.phone || userData?.mobile || "",
+      role: userData?.role, // ADMIN / CUSTOMER
     };
+  };
 
-    // ✅ UNIVERSAL MAPPING (MAIN FIX)
-    const mapUser = (raw) => {
-        const userData =
-            raw?.user ||
-            raw?.data ||
-            raw?.result ||
-            raw;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        return {
-            id:
-                userData?.id ||
-                userData?.userId ||
-                userData?.uid ||
-                userData?.user_id,
+    try {
+      let response;
 
-            fullName:
-                userData?.fullName ||
-                userData?.name ||
-                userData?.username ||
-                "User",
-
-            email: userData?.email || "",
-            phone: userData?.phone || userData?.mobile || "",
-            
-            // ✅ USE BACKEND ROLE
-            role: userData?.role   // "ADMIN" or "CUSTOMER"
-        };
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        try {
-            let response;
-
-            if (formType === "signup") {
-                if (formData.password !== formData.confirmPassword) {
-                    alert("Passwords do not match!");
-                    return;
-                }
-
-                response = await registerUser({
-                    fullName: formData.fullName,
-                    phone: formData.phone,
-                    email: formData.email,
-                    password: formData.password,
-                });
-            }
-
-            if (formType === "userLogin") {
-                response = await userLogin({
-                    phone: formData.phone,
-                    password: formData.password,
-                });
-            }
-
-            if (formType === "adminLogin") {
-                response = await adminLogin({
-                    email: formData.email,
-                    password: formData.password,
-                });
-            }
-
-            console.log("🔥 API RESPONSE:", response.data);
-
-            const user = mapUser(response.data);
-
-            console.log("✅ MAPPED USER:", user);
-
-            // 🚨 MUST HAVE ID
-            if (!user.id) {
-                alert("❌ User ID missing from backend!");
-                console.error("INVALID USER DATA:", response.data);
-                return;
-            }
-
-            localStorage.setItem("loggedUser", JSON.stringify(user));
-            onLogin(user);
-
-        } catch (error) {
-            console.error(error);
-            alert("Login/Register failed!");
+      // SIGNUP
+      if (formType === "signup") {
+        if (formData.password !== formData.confirmPassword) {
+          alert("Passwords do not match!");
+          return;
         }
-    };
+
+        response = await registerUser(formData);
+      }
+
+      // USER LOGIN
+      if (formType === "userLogin") {
+        response = await userLogin({
+          phone: formData.phone,
+          password: formData.password,
+        });
+      }
+
+      // ADMIN LOGIN
+      if (formType === "adminLogin") {
+        response = await adminLogin({
+          email: formData.email,
+          password: formData.password,
+        });
+      }
+
+      const user = mapUser(response.data);
+
+      if (!user.id) {
+        alert("User ID missing!");
+        return;
+      }
+
+      // ✅ ROLE-BASED STORAGE
+      if (user.role === "ADMIN") {
+        localStorage.setItem("adminUser", JSON.stringify(user));
+        window.location.href = "/admin/dashboard";
+      } else {
+        localStorage.setItem("loggedUser", JSON.stringify(user));
+        window.location.href = "/home";
+      }
+
+      if (onLogin) onLogin(user);
+
+    } catch (error) {
+      console.error(error);
+      alert("Login failed!");
+    }
+  };
 
     return (
         <div className="login-modal">
@@ -214,17 +202,25 @@ const Login = ({ onLogin, onClose }) => {
                 <div className="form-footer">
                     {formType !== "signup" && (
                         <p>
-                            Don't have an account? <span onClick={() => setFormType("signup")}>Sign Up</span>
+                            Don't have an account?{" "}
+                            <span onClick={() => setFormType("signup")}>Sign Up</span>
                         </p>
                     )}
+
                     {formType === "signup" && (
                         <p>
-                            Already have an account? <span onClick={() => setFormType("userLogin")}>Login</span>
+                            Already have an account?{" "}
+                            <span onClick={() => setFormType("userLogin")}>Login</span>
                         </p>
                     )}
-                    {formType !== "adminLogin" && (
+
+                    {/* Hide admin switch if already admin route */}
+                    {type !== "admin" && formType !== "adminLogin" && (
                         <p>
-                            Admin? <span onClick={() => setFormType("adminLogin")}>Login Here</span>
+                            Admin?{" "}
+                            <span onClick={() => setFormType("adminLogin")}>
+                                Login Here
+                            </span>
                         </p>
                     )}
                 </div>

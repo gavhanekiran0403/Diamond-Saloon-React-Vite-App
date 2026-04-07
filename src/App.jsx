@@ -9,32 +9,37 @@ import AdminRoutes from "./routes/AdminRoutes";
 
 import Login from "./pages/user/Login";
 import Signup from "./pages/user/Signup";
-import AdminLogin from "./pages/admin/login/AdminLogin";
 
 function App() {
   const storedUser = JSON.parse(localStorage.getItem("loggedUser"));
+  const adminUser = JSON.parse(localStorage.getItem("adminUser"));
 
   return (
     <Routes>
 
       {/* USER */}
       <Route path="/" element={<UserLayout />}>
-
-        {/* redirect */}
         <Route index element={<Navigate to="home" />} />
 
-        {/* ✅ IMPORTANT */}
-        {UserRoutes(storedUser)}
-
+        {storedUser && storedUser.role !== "ADMIN"
+          ? UserRoutes(storedUser)
+          : UserRoutes(null)}
       </Route>
 
       {/* AUTH */}
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login type="user" />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/admin-login" element={<AdminLogin />} />
+      <Route path="/admin-login" element={<Login type="admin" />} />
 
       {/* ADMIN */}
-      <Route path="/admin" element={<AdminLayout />}>
+      <Route
+        path="/admin"
+        element={
+          adminUser && adminUser.role === "ADMIN"
+            ? <AdminLayout />
+            : <Navigate to="/home" />
+        }
+      >
         {AdminRoutes()}
       </Route>
 
