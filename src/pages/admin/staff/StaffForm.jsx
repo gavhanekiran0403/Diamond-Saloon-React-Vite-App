@@ -112,7 +112,8 @@ const StaffForm = () => {
                         {isEditMode ? "Update" : "Save"}
                     </button>
 
-                    <button 
+                    <button
+                        type="button"
                         className="cancel-btn"
                         onClick={() => navigate(`/admin/staff`)}
                     >

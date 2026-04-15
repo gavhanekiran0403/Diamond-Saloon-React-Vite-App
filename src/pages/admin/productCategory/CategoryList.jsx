@@ -14,7 +14,7 @@ const getAllCategories = useCallback(async () => {
         setLoading(true);
 
         const res = await getAllProductCategories();
-        setCategories(res.data);
+        setCategories(res.data.data);
     } catch (error) {
         alert("❌ Failed to fetch categories. Please try again later!");
         console.log("Error fetching categories", error);

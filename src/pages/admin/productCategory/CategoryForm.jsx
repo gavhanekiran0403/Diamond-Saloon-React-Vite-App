@@ -18,7 +18,7 @@ const CategoryForm = () => {
 
       try {
         const res = await getProductCategoryById(categoryId);
-        setFormData(res.data);
+        setFormData(res.data.data);
       } catch (error) {
         alert("❌ Failed to load category data!");
         console.log("Error loading category", error);

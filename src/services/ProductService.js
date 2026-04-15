@@ -13,14 +13,14 @@ export const addProduct = (productDto, imageFile) => {
 
   formData.append("image", imageFile);
 
-  return axios.post(`${API_URL}/add`, formData, {
+  return axios.post(API_URL, formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 };
 
 // GET ALL PRODUCTS
 export const getAllProducts = () => {
-  return axios.get(`${API_URL}/get-all`);
+  return axios.get(API_URL);
 };
 
 // GET PRODUCT BY ID
@@ -30,7 +30,7 @@ export const getProductById = (productId) => {
 
 // GET PRODUCTS BY CATEGORY
 export const getProductsByCategory = (productCategoryId) => {
-  return axios.get(`${API_URL}/get-by-category/${productCategoryId}`);
+  return axios.get(`${API_URL}/category/${productCategoryId}`);
 }
 
 
@@ -45,12 +45,12 @@ export const updateProduct = (productId, productDto, imageFile) => {
 
   formData.append("image", imageFile);
 
-  return axios.put(`${API_URL}/update/${productId}`, formData, {
+  return axios.put(`${API_URL}/${productId}`, formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 };
 
 // DELETE PRODUCT
 export const deleteProduct = (productId) => {
-  return axios.delete(`${API_URL}/delete/${productId}`);
+  return axios.delete(`${API_URL}/${productId}`);
 };

@@ -35,7 +35,7 @@ const AppointmentForm = () => {
           getAllSaloonPackages(),
         ]);
 
-        setUsers(usersRes?.data || []);
+        setUsers(usersRes?.data.data || []);
         setServices(servicesRes?.data || []);
         setPackages(packagesRes?.data || []);
 
@@ -139,7 +139,7 @@ const AppointmentForm = () => {
         </div>
 
         {/* Package */}
-        <div className="form-group">
+        {/* <div className="form-group">
           <label>Service Package</label>
           <select
             name="packageId"
@@ -153,7 +153,7 @@ const AppointmentForm = () => {
               </option>
             ))}
           </select>
-        </div>
+        </div> */}
 
         {/* Date */}
         <div className="form-group">

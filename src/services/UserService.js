@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:9292/user";
+const API_URL = "http://localhost:9292/users";
 
 // ✅ Get All Users
 export const getAllUsers = () => {
-  return axios.get(`${API_URL}/get-all`);
+  return axios.get(API_URL);
 };
 
 // ✅ Get Single User (Profile)

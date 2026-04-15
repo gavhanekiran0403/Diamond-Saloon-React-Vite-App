@@ -16,7 +16,7 @@ const ProductList = () => {
   const loadCategories = async () => {
     try {
       const res = await getAllProductCategories();
-      setCategories(res.data);
+      setCategories(res.data.data);
     } catch (error) {
       alert("❌ Failed to fetch categories. Please try again later!");
       console.log("Error fetching categories : ", error);
@@ -34,7 +34,7 @@ const ProductList = () => {
         res = await getProductsByCategory(selectedCategory);
       }
       
-      setProducts(res.data);
+      setProducts(res.data.data);
     } catch (error) {
       alert("❌ Failed to fetch products. Please try again later!");
       console.log("Error fetching products : ", error);

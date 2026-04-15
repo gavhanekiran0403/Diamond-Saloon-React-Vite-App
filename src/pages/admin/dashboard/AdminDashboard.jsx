@@ -28,7 +28,7 @@ const Dashboard = () => {
   const fetchUsers = async () => {
     try {
       const response = await getAllUsers();
-      setUsers(response.data);
+      setUsers(response.data.data);
     } catch (error) {
       console.error("Error fetching users: ", error);
     }
@@ -37,7 +37,7 @@ const Dashboard = () => {
   const fetchProducts = async () => {
     try {
       const response = await getAllProducts();
-      setProducts(response.data);
+      setProducts(response.data.data);
     } catch (error) {
       console.error("Error fetching products: ", error);
     }
@@ -46,7 +46,7 @@ const Dashboard = () => {
   const fetchTodayOrders = async () => {
     try {
       const response = await getTodayOrders();
-      setTodayOrders(response.data);
+      setTodayOrders(response.data.data);
     } catch (error) {
       console.error("Error fetching today orders: ", error);
     }

@@ -29,8 +29,8 @@ const OrderList = () => {
         getAllUsers()
       ]);
 
-      setOrdersData(ordersRes.data || []);
-      setUsers(usersRes.data || []);
+      setOrdersData(ordersRes.data.data || []);
+      setUsers(usersRes.data.data || []);
     } catch (error) {
       console.log(error);
       alert("❌ Failed to fetch data");

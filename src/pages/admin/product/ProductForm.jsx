@@ -33,7 +33,7 @@ const ProductForm = () => {
   const loadCategories = async () => {
     try {
       const res = await getAllProductCategories();
-      setCategories(res.data);
+      setCategories(res.data.data);
     } catch (error) {
       alert("❌ Failed to fetch categories. Please try again later!");
       console.log("Error fetching categories : ", error);
@@ -46,17 +46,17 @@ const ProductForm = () => {
       const res = await getProductById(productId);
 
       setFormData({
-        productName: res.data.productName || "",
-        brand: res.data.brand || "",
-        price: res.data.price || "",
-        stockQuantity: res.data.stockQuantity || "",
-        description: res.data.description || "",
-        productCategoryId: res.data.categoryId || "",
+        productName: res.data.data.productName || "",
+        brand: res.data.data.brand || "",
+        price: res.data.data.price || "",
+        stockQuantity: res.data.data.stockQuantity || "",
+        description: res.data.data.description || "",
+        productCategoryId: res.data.data.productCategoryId || "",
       });
 
       // Base64 image preview (backend stores base64 in imageUrl)
-      if (res.data.imageUrl) {
-        setImagePreview(`data:image/jpeg;base64,${res.data.imageUrl}`);
+      if (res.data.data.imageUrl) {
+        setImagePreview(`data:image/jpeg;base64,${res.data.data.imageUrl}`);
       }
     } catch (error) {
       alert("❌ Failed to fetch product. Please try again later!");

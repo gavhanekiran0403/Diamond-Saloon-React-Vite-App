@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:9292/order";
+const API_URL = "http://localhost:9292/orders";
 
 export const getAllOrders = () => {
-    return axios.get(`${API_URL}/get-all`);
+    return axios.get(API_URL);
 };
 
 export const deleteOrder = (orderId) => {
-    return axios.delete(`${API_URL}/delete/${orderId}`);
+    return axios.delete(`${API_URL}/${orderId}`);
 };
 
 export const getOrderById = (orderId) => {
@@ -15,7 +15,7 @@ export const getOrderById = (orderId) => {
 };
 
 export const createOrder = (orderData) => {
-    return axios.post(`${API_URL}/add`, orderData);
+    return axios.post(API_URL, orderData);
 };
 
 export const updateOrder = (orderId, orderData) => {

@@ -14,7 +14,7 @@ const CustomerList = () => {
       setLoading(true);
 
       const res = await getAllUsers();
-      setCustomers(res.data);
+      setCustomers(res.data.data);
 
     } catch (error) {
       alert("❌ Failed to fetch customers. Please try again later!");
