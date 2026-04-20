@@ -1,301 +1,231 @@
-/* ===== GLOBAL ===== */
+/* Men.css */
+/* SAME DESIGN AS WOMEN PAGE */
+
 .men-page {
-    padding: 40px 20px;
-    font-family: "Poppins", sans-serif;
-    background: #f9fafc;
+  padding: 90px 20px;
+  text-align: center;
+  animation: fadeUp 1s ease forwards;
+
+  background:
+    radial-gradient(circle farthest-side at top center,
+      rgba(80, 170, 255, 0.35),
+      transparent 35%),
+    #ffffff;
 }
 
+/* Title */
 .men-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
+  font-size: 2.6rem;
+  color: #0d47a1;
+  margin-bottom: 10px;
 }
 
 .men-subtitle {
-    text-align: center;
-    color: gray;
-    margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 60px;
 }
 
-/* ===== IMAGE GRID ===== */
+/* IMAGE GRID */
 .men-image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 90px;
 }
 
 .men-image-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(13, 71, 161, 0.12);
+  transition: 0.4s ease;
+  animation: zoomIn 0.8s ease forwards;
 }
 
 .men-image-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.men-image-card h3 {
+  color: #0d47a1;
+  margin: 15px 0 18px;
 }
 
 .men-image-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(13, 71, 161, 0.25);
 }
 
-/* ===== SERVICES ===== */
-.men-services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-    margin: 40px 0;
-}
-
-.men-card {
-    background: #fff;
-    padding: 15px;
-    text-align: center;
-    border-radius: 10px;
-    font-weight: 500;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    transition: 0.3s;
-}
-
-.men-card:hover {
-    background: #111;
-    color: #fff;
-}
-
-/* ===== PACKAGES ===== */
-.men-packages-section {
-    margin: 40px 0;
-}
-
-.men-packages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.men-package-card {
-    background: linear-gradient(135deg, #6ae9ae, #333);
-    color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.men-package-card:hover {
-    transform: scale(1.05);
-}
-
-/* ===== PRICE SECTION ===== */
-.men-price-section {
-    margin: 50px 0;
-    text-align: center;
-}
-
-.men-price-section h2 {
-    font-size: 28px;
-    margin-bottom: 25px;
-    font-weight: 600;
-    color: #222;
-}
-
-/* GRID */
-.men-price-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-/* CARD */
-.men-price-card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-}
-
-/* HOVER EFFECT */
-.men-price-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* TITLE */
-.men-price-card h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #111;
-    border-bottom: 2px solid #f1f1f1;
-    padding-bottom: 8px;
-}
-
-/* LIST */
-.men-price-card ul {
-    list-style: none;
-    padding: 0;
-}
-
-.men-price-card ul li {
-    padding: 10px 0;
-    font-size: 15px;
-    color: #555;
-    border-bottom: 1px dashed #eee;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* REMOVE LAST BORDER */
-.men-price-card ul li:last-child {
-    border-bottom: none;
-}
-
-/* PRICE STYLE */
-.men-price-card ul li::after {
-    content: "✔";
-    color: #2ecc71;
-    font-size: 14px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .men-price-section h2 {
-        font-size: 22px;
-    }
-
-    .men-price-card {
-        padding: 20px;
-    }
-
-    .men-price-card ul li {
-        font-size: 14px;
-    }
-}
-
-/* ===== SPECIAL OFFER ===== */
-.women-special-offer {
-    background: linear-gradient(135deg, #ff7b00, #ffb347);
-    color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    margin: 30px 0;
-}
-
-/* ===== EVENTS ===== */
+/* EVENTS */
 .events-section {
-    margin-top: 40px;
+  margin-top: 30px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 35px;
+}
+
+.boys {
+  color: #0d47a1;
 }
 
 .events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
-/* CARD */
 .event-card {
-    background: #fff;
-    border-radius: 15px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: 0.3s;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: 0.4s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .event-card:hover {
-    transform: translateY(-8px);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(13, 71, 161, 0.18);
 }
 
-/* IMAGE */
+.offer-badge {
+  position: absolute;
+  top: 15px;
+  left: -30px;
+  background: #ff5722;
+  color: white;
+  padding: 8px 40px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transform: rotate(-35deg);
+  z-index: 5;
+}
+
 .img-box img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
 }
 
-/* CONTENT */
 .content {
-    padding: 15px;
+  padding: 20px;
 }
 
 .content h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
+  color: #0d47a1;
+  margin-bottom: 10px;
 }
 
 .discount {
-    color: #e63946;
-    font-weight: bold;
+  font-size: 1.1rem;
+  color: #ff5722;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.content span {
+  display: block;
+  color: #666;
+  margin-bottom: 10px;
 }
 
 .timer {
-    margin-top: 8px;
-    font-size: 14px;
-    color: #555;
+  background: #e3f2fd;
+  color: #0d47a1;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
 }
 
-/* BADGE */
-.offer-badge {
-    position: absolute;
-    top: 10px;
-    left: -10px;
-    background: red;
-    color: #fff;
-    padding: 5px 12px;
-    font-size: 12px;
-    transform: rotate(-20deg);
-}
-
-/* ===== CTA ===== */
+/* CTA */
 .men-cta {
-    text-align: center;
-    margin-top: 50px;
+  margin-top: 100px;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0d47a1, #1565c0);
+  color: white;
+  border-radius: 25px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.men-cta h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.men-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
 }
 
 .men-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #000;
-    color: #c3f0e5;
-    border-radius: 8px;
-    text-decoration: none;
-    margin-top: 10px;
-    transition: 0.3s;
+  display: inline-block;
+  padding: 14px 35px;
+  background: white;
+  color: #0d47a1;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .men-btn:hover {
-    background: #444;
+  background: #e3f2fd;
+  transform: scale(1.05);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-/* Mobile */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* MOBILE */
 @media (max-width: 600px) {
-    .men-title {
-        font-size: 24px;
-    }
+  .men-title {
+    font-size: 2rem;
+  }
 
-    .men-image-card img {
-        height: 140px;
-    }
+  .men-cta h2 {
+    font-size: 2rem;
+  }
 
-    .event-card {
-        margin: 0 auto;
-    }
-}
+  .img-box img,
+  .men-image-card img {
+    height: 180px;
+  }
 
-/* Tablet */
-@media (max-width: 900px) {
-    .men-title {
-        font-size: 28px;
-    }
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
 }

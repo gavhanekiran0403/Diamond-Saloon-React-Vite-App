@@ -78,9 +78,21 @@ const OrderList = () => {
     const matchCustomer =
       customerFilter === "" ||
       fullName.includes(customerFilter.toLowerCase());
+    
+      const formatCustomDate = (dateStr) => {
+        if (!dateStr) return "";
 
-    const matchDate =
-      orderDateFilter === "" || order.orderAt === orderDateFilter;
+        // Example: "01/04/2026 - 11:56am"
+        const [datePart] = dateStr.split(" - "); // "01/04/2026"
+
+        const [day, month, year] = datePart.split("/");
+
+        return `${year}-${month}-${day}`; // "2026-04-01"
+      };
+
+      const matchDate =
+        orderDateFilter === "" ||
+        formatCustomDate(order.createdAt) === orderDateFilter;
 
     const matchStatus =
       statusFilter === "ALL" || order.orderStatus === statusFilter;
@@ -183,7 +195,7 @@ const OrderList = () => {
                   <td>{index + 1}</td>
                   <td>{order.orderId}</td>
                   <td>{getUserFullName(order.userId)}</td>
-                  <td>{order.orderAt}</td>
+                  <td>{order.createdAt}</td>
 
                   <td>
                     <span

@@ -8,35 +8,77 @@ const Women = () => {
 
   // ✅ Girls Events Only
   const girlsEvents = [
-    {
-      id: 1,
-      title: "Bridal Glow Package",
-      discount: "40% OFF Makeup",
-      image: "bride.jpeg",
-      expiry: "2026-12-10"
-    },
-    {
-      id: 2,
-      title: "Party Ready Look",
-      discount: "25% OFF Styling",
-      image: "party.JPEG",
-      expiry: "2026-11-20"
-    },
-    {
-      id: 3,
-      title: "Hair Spa Special",
-      discount: "30% OFF",
-      image: "hairspa.JPEG",
-      expiry: "2026-10-30"
-    },
-    {
-      id: 4,
-      title: "Facial Glow Offer",
-      discount: "20% OFF Facial",
-      image: "facial.JPEG",
-      expiry: "2026-11-05"
-    }
-  ];
+  {
+    id: 1,
+    title: "Bridal Glow Package",
+    discount: "40% OFF Makeup",
+    image: "bride.jpeg",
+    expiry: "2026-12-10"
+  },
+  {
+    id: 2,
+    title: "Party Ready Look",
+    discount: "25% OFF Styling",
+    image: "party.JPEG",
+    expiry: "2026-11-20"
+  },
+  {
+    id: 3,
+    title: "Hair Spa Special",
+    discount: "30% OFF",
+    image: "hairspa.JPEG",
+    expiry: "2026-10-30"
+  },
+  {
+    id: 4,
+    title: "Facial Glow Offer",
+    discount: "20% OFF Facial",
+    image: "facial.JPEG",
+    expiry: "2026-11-05"
+  },
+  {
+    id: 5,
+    title: "Keratin Smooth Deal",
+    discount: "35% OFF Keratin",
+    image: "keratin.jpg",
+    expiry: "2026-12-18"
+  },
+  {
+    id: 6,
+    title: "Hair Coloring Offer",
+    discount: "30% OFF Color",
+    image: "whaircolor.jpg",
+    expiry: "2026-11-28"
+  },
+  {
+    id: 7,
+    title: "Nail Art Combo",
+    discount: "25% OFF Nail Art",
+    image: "nailart.jpg",
+    expiry: "2026-12-02"
+  },
+  {
+    id: 8,
+    title: "Cleanup Fresh Deal",
+    discount: "20% OFF Cleanup",
+    image: "cleanup.jpg",
+    expiry: "2026-12-08"
+  },
+  {
+    id: 9,
+    title: "Princess Package",
+    discount: "45% OFF Combo Pack",
+    image: "princess.jpg",
+    expiry: "2026-12-25"
+  },
+  {
+    id: 10,
+    title: "Wedding Special Offer",
+    discount: "50% OFF Bridal Combo",
+    image: "wedding.jpg",
+    expiry: "2026-12-31"
+  }
+];
 
   // ✅ Filter active events
   const activeEvents = girlsEvents.filter(
@@ -94,17 +136,17 @@ const Women = () => {
       </div>
 
       {/* ✅ Services */}
-      <div className="women-services">
+      {/* <div className="women-services">
         <div className="women-card">💇 Haircut & Styling</div>
         <div className="women-card">💆 Hair Spa</div>
         <div className="women-card">💄 Makeup</div>
         <div className="women-card">🎨 Hair Coloring</div>
         <div className="women-card">🧴 Facial</div>
         <div className="women-card">💅 Manicure</div>
-      </div>
+      </div> */}
 
       {/* ✅ Prices */}
-      <div className="women-price-section">
+      {/* <div className="women-price-section">
         <h2>Price List</h2>
 
         <div className="women-price-grid">
@@ -126,7 +168,7 @@ const Women = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* ✅ EVENT OFFERS */}
       <div className="events-section">

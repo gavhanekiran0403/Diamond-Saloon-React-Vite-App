@@ -56,8 +56,8 @@ const Dashboard = () => {
     try {
       const response = await getAllOrders();
 
-      const sortedOrders = response.data.sort(
-        (a, b) => new Date(b.orderAt) - new Date(a.orderAt)
+      const sortedOrders = response.data.data.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
 
       setOrders(sortedOrders);

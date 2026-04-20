@@ -49,7 +49,7 @@ const AppointmentList = () => {
     const matchStatus =
       statusFilter === "ALL" ? true : apt.status === statusFilter;
 
-    const matchDate = dateFilter === "" ? true : apt.appointments === dateFilter;
+    const matchDate = dateFilter === "" ? true : apt.appointmentDate === dateFilter;
 
     return matchStatus && matchDate;
   });
