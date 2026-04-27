@@ -19,7 +19,7 @@ function AdminSidebar({ open, setOpen }) {
           <li><NavLink to="/admin/dashboard">📊 Dashboard</NavLink></li>
           <li><NavLink to="/admin/appointments">📅 Appointments</NavLink></li>
           <li><NavLink to="/admin/services">💇 Services</NavLink></li>
-          <li><NavLink to="/admin/service-packages">🎁 Service Packages</NavLink></li>
+          <li><NavLink to="/admin/service-packages">🎁 Special Offer Packages</NavLink></li>
           <li><NavLink to="/admin/categories">🗂 Product Categories</NavLink></li>
           <li><NavLink to="/admin/products">🛒 Products</NavLink></li>
           <li><NavLink to="/admin/orders">🧾 Orders</NavLink></li>

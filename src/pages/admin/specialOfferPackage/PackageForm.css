@@ -75,6 +75,20 @@
   color: #374151;
 }
 
+.image-preview-box {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.image-preview {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
 /* Buttons */
 .form-actions {
   display: flex;

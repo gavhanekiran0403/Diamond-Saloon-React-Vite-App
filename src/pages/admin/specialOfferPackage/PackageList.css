@@ -111,6 +111,15 @@
   background-color: #f9fafb;
 }
 
+/* Image */
+.package-table-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
 /* Services Badges */
 .package-services-cell {
   display: flex;

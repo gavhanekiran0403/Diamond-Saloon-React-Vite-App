@@ -1,14 +1,79 @@
-import React, { useState } from "react";
+// BookingForm.jsx
+import React, { useEffect, useState } from "react";
 import "./BookingForm.css";
+
+import { getAllSaloonServices } from "../../services/SaloonService";
+import { getAllSaloonPackages } from "../../services/SpecialOfferPackageService";
+import { createAppointment } from "../../services/AppointmentService";
+
 const BookingForm = () => {
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
   const [formData, setFormData] = useState({
-    customerName: "",
+    customerName: loggedUser ? loggedUser.fullName : "",
     service: "",
-    packageName: "",
     date: "",
     time: ""
   });
+
+  const [girlsServices, setGirlsServices] = useState([]);
+  const [boysServices, setBoysServices] = useState([]);
+  const [packages, setPackages] = useState([]);
+
+  const timeSlots = [
+    "9 AM - 10 AM",
+    "10 AM - 11 AM",
+    "11 AM - 12 PM",
+    "12 PM - 1 PM",
+    "1 PM - 2 PM",
+    "2 PM - 3 PM",
+    "3 PM - 4 PM",
+    "4 PM - 5 PM",
+    "5 PM - 6 PM",
+    "6 PM - 7 PM",
+    "7 PM - 8 PM",
+    "8 PM - 9 PM",
+    "9 PM - 10 PM"
+  ];
+
+  useEffect(() => {
+    loadServices();
+    loadPackages();
+  }, []);
+
+  const loadServices = async () => {
+    try {
+      const response = await getAllSaloonServices();
+      const allServices = response.data;
+
+      setGirlsServices(
+        allServices.filter(
+          (item) =>
+            item.category &&
+            item.category.toLowerCase() === "women"
+        )
+      );
+
+      setBoysServices(
+        allServices.filter(
+          (item) =>
+            item.category &&
+            item.category.toLowerCase() === "men"
+        )
+      );
+    } catch (error) {
+      console.error("Error loading services", error);
+    }
+  };
+
+  const loadPackages = async () => {
+    try {
+      const response = await getAllSaloonPackages();
+      setPackages(response.data.data);
+    } catch (error) {
+      console.error("Error loading packages", error);
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -17,71 +82,54 @@ const BookingForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
     if (!loggedUser) {
       alert("Please Login First");
       return;
     }
 
-    const appointmentId = "APT" + Date.now();
-
-    const newAppointment = {
-      id: appointmentId,
-      customerName: formData.customerName,
+    const appointmentData = {
+      customerName: loggedUser.fullName,
       service: formData.service,
-      packageName: formData.packageName,
       date: formData.date,
       time: formData.time,
       status: "Pending",
       userEmail: loggedUser.email
     };
 
-    const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+    try {
+      await createAppointment(appointmentData);
 
-    appointments.push(newAppointment);
+      alert("Appointment Booked Successfully");
 
-    localStorage.setItem("appointments", JSON.stringify(appointments));
-
-    /* Notification */
-
-    const newNotification = {
-      id: Date.now(),
-      appointmentId: appointmentId,
-      message: `New Appointment for ${formData.service}`,
-      confirmed: false,
-      time: new Date().toLocaleString()
-    };
-
-    const notifications = JSON.parse(localStorage.getItem("notifications")) || [];
-
-    notifications.push(newNotification);
-
-    localStorage.setItem("notifications", JSON.stringify(notifications));
-
-    alert("Appointment Booked");
-
+      setFormData({
+        customerName: loggedUser.fullName,
+        service: "",
+        date: "",
+        time: ""
+      });
+    } catch (error) {
+      console.error(error);
+      alert("Booking Failed");
+    }
   };
 
   return (
-
     <div className="booking-container">
       <form className="booking-form" onSubmit={handleSubmit}>
         <h2>Book Appointment</h2>
 
-        {/* <form onSubmit={handleSubmit}> */}
-
+        {/* Auto Filled Customer Name */}
         <input
           type="text"
           name="customerName"
-          placeholder="Customer Name"
-          onChange={handleChange}
-          required
+          value={formData.customerName}
+          readOnly
         />
 
+        {/* Service Dropdown */}
         <select
           name="service"
           value={formData.service}
@@ -90,62 +138,60 @@ const BookingForm = () => {
         >
           <option value="">Select Service</option>
 
-          {/* 👨 Boys Services */}
-          <optgroup label="Boys Services">
-            <option value="Haircut">Haircut - ₹150</option>
-            <option value="Beard Styling">Beard Styling - ₹100</option>
-            <option value="Haircut Combo">Haircut Combo - ₹199</option>
-            <option value="Groom Package">Groom Package - ₹499</option>
-          </optgroup>
-
-          {/* 👩 Girls Services */}
           <optgroup label="Girls Services">
-            <option value="Facial">Facial - ₹300</option>
-            <option value="Hair Spa">Hair Spa - ₹400</option>
-            <option value="Bridal Makeup">Bridal Makeup - ₹2999</option>
-            <option value="Party Styling">Party Styling - ₹999</option>
+            {girlsServices.map((item) => (
+              <option key={item.serviceId} value={item.serviceName}>
+                {item.serviceName} - ₹{item.price}
+              </option>
+            ))}
           </optgroup>
 
-          {/* ⭐ Special Offers */}
-          <optgroup label="Special Offers">
-            <option value="Festival Look">Festival Look - ₹799</option>
-            <option value="Engagement Package">Engagement Package - ₹1999</option>
-            <option value="Birthday Styling">Birthday Styling - ₹699</option>
+          <optgroup label="Boys Services">
+            {boysServices.map((item) => (
+              <option key={item.serviceId} value={item.serviceName}>
+                {item.serviceName} - ₹{item.price}
+              </option>
+            ))}
           </optgroup>
 
+          <optgroup label="Special Offer Packages">
+            {packages.map((item) => (
+              <option key={item.packageId} value={item.packageName}>
+                {item.packageName} - ₹{item.offerPrice}
+              </option>
+            ))}
+          </optgroup>
         </select>
 
-        <select name="packageName" onChange={handleChange} required>
-          <option value="">Select Package</option>
-          <option value="Basic">Basic</option>
-          <option value="Premium">Premium</option>
-        </select>
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+          required
+        />
 
-        <input type="date" name="date" onChange={handleChange} required />
-
-        <select name="time" onChange={handleChange} required>
+        <select
+          name="time"
+          value={formData.time}
+          onChange={handleChange}
+          required
+        >
           <option value="">Select Time Slot</option>
-          <option value="9 AM - 10 AM">9 AM - 10 AM</option>
-          <option value="10 AM - 11 AM">10 AM - 11 AM</option>
-          <option value="11 AM - 12 PM">11 AM - 12 PM</option>
-          <option value="12 PM - 1 PM">12 PM - 1 PM</option>
-          <option value="1 PM - 2 PM">1 PM - 2 PM</option>
-          <option value="2 PM - 3 PM">2 PM - 3 PM</option>
-          <option value="3 PM - 4 PM">3 PM - 4 PM</option>
-          <option value="4 PM - 5 PM">4 PM - 5 PM</option>
-          <option value="5 PM - 6 PM">5 PM - 6 PM</option>
-          <option value="6 PM - 7 PM">6 PM - 7 PM</option>
-          <option value="6 PM - 7 PM">7 PM - 8 PM</option>
-          <option value="6 PM - 7 PM">8 PM - 9 PM</option>
-          <option value="6 PM - 7 PM">9 PM - 10 PM</option>
+
+          {timeSlots.map((slot, index) => (
+            <option key={index} value={slot}>
+              {slot}
+            </option>
+          ))}
         </select>
-        <button type="submit" className="book-btn">Book</button>
+
+        <button type="submit" className="book-btn">
+          Book
+        </button>
       </form>
-
     </div>
-
   );
-
 };
 
 export default BookingForm;

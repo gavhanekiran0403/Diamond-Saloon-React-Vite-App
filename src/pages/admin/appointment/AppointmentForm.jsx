@@ -4,7 +4,7 @@ import "./AdminAppointmentForm.css";
 
 import { getAllUsers } from "../../../services/UserService";
 import { getAllSaloonServices } from "../../../services/SaloonService";
-import { getAllSaloonPackages } from "../../../services/SaloonPackageService";
+import { getAllSaloonPackages } from "../../../services/SpecialOfferPackageService";
 import { createAppointment } from "../../../services/AppointmentService";
 
 const AppointmentForm = () => {
